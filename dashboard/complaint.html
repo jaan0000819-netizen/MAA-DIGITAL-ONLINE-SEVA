@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Complaint - MAA DIGITAL</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+<link rel="stylesheet" href="../assets/css/dashboard.css">
+</head>
+<body>
+<nav class="navbar"><div class="navbar-brand"><div class="logo-icon">🌐</div><div><div class="brand-name">MAA DIGITAL</div><div class="brand-sub">Member Portal</div></div></div><div class="navbar-actions"><button class="topbar-btn" onclick="logout()">🚪</button></div></nav>
+<div class="dash-layout">
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header"><div class="user-info"><div class="user-avatar">M</div><div><div class="user-name" data-user-name>Member Ji</div><div class="user-id" data-user-id>MD00001</div></div></div><div class="wallet-box"><div><div class="label">Wallet</div><div class="amount" data-user-wallet>₹0.00</div></div></div></div>
+    <nav class="sidebar-nav">
+      <a href="index.html"><span class="nav-icon">🏠</span> Dashboard</a>
+      <a href="wallet.html"><span class="nav-icon">💰</span> Wallet</a>
+      <div class="nav-section-title">Services</div>
+      <a href="../services/aadhaar.html"><span class="nav-icon">🪪</span> Aadhaar</a>
+      <a href="../services/pan-card.html"><span class="nav-icon">💳</span> PAN Card</a>
+      <a href="../services/voter-id.html"><span class="nav-icon">🗳️</span> Voter</a>
+      <a href="../services/ayushman.html"><span class="nav-icon">🏥</span> Ayushman</a>
+      <a href="../services/other.html"><span class="nav-icon">📋</span> Others</a>
+      <div class="nav-section-title">Account</div>
+      <a href="orders.html"><span class="nav-icon">📦</span> Orders</a>
+      <a href="complaint.html" class="active"><span class="nav-icon">📣</span> Complaint</a>
+      <a href="pricing.html"><span class="nav-icon">💲</span> Pricing</a>
+      <a href="refer.html"><span class="nav-icon">🎁</span> Refer & Earn</a>
+    </nav>
+  </aside>
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+  <main class="dash-main">
+    <div class="topbar"><div class="topbar-left"><button class="sidebar-toggle-btn" id="sidebarToggle">☰</button><span class="page-title">📣 Complaint Rise</span></div></div>
+    <div class="dash-content">
+      <div class="grid-2" style="align-items:start;gap:20px">
+        <div class="card">
+          <div class="card-header"><h4>📝 New Complaint</h4></div>
+          <div class="card-body">
+            <div id="alertBox"></div>
+            <div class="form-group">
+              <label class="form-label">Complaint Type <span class="req">*</span></label>
+              <select class="form-control" required>
+                <option value="">Select type</option>
+                <option>Service Related</option>
+                <option>Wallet Issue</option>
+                <option>Order Issue</option>
+                <option>Staff Behavior</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Order ID (Optional)</label>
+              <div class="input-group"><span class="input-icon">📦</span><input type="text" class="form-control" placeholder="Order ID agar hai to"></div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Subject <span class="req">*</span></label>
+              <input type="text" class="form-control" placeholder="Complaint ka subject" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Description <span class="req">*</span></label>
+              <textarea class="form-control" rows="4" placeholder="Puri baat detail mein likhein..." required></textarea>
+            </div>
+            <button class="btn btn-navy btn-block" onclick="submitComplaint()">📤 Submit Complaint</button>
+            <div style="margin-top:14px;text-align:center">
+              <p style="font-size:.78rem;color:var(--gray-400)">Ya seedha WhatsApp karein:</p>
+              <a href="https://wa.me/919898072313" class="btn btn-whatsapp btn-sm">💬 9898072313</a>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header"><h4>📋 My Complaints</h4></div>
+          <div class="card-body"><div class="empty-state"><div class="empty-icon">🎉</div><h4>Koi complaint nahi</h4><p>Abhi tak koi complaint darj nahi ki.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+<script src="../assets/js/main.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded',()=>{if(!Store.get('user'))window.location.href='../login.html';loadUserInfo();document.getElementById('sidebarToggle').addEventListener('click',()=>{document.getElementById('sidebar').classList.toggle('open');document.getElementById('sidebarOverlay').classList.toggle('show');});document.getElementById('sidebarOverlay').addEventListener('click',()=>{document.getElementById('sidebar').classList.remove('open');document.getElementById('sidebarOverlay').classList.remove('show');});});
+function submitComplaint(){showAlert('Complaint submit ho gayi! 24 ghante mein jawab milega.','success');}
+</script>
+</body>
+</html>

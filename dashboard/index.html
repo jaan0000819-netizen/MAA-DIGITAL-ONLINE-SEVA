@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Dashboard - MAA DIGITAL</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+<link rel="stylesheet" href="../assets/css/dashboard.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="navbar-brand">
+    <div class="logo-icon">🌐</div>
+    <div><div class="brand-name">MAA DIGITAL</div><div class="brand-sub">Member Portal</div></div>
+  </div>
+  <div class="navbar-actions">
+    <span class="live-time" id="liveTime">--:--:--</span>
+    <button class="topbar-btn" title="Notifications">🔔</button>
+    <button class="topbar-btn" onclick="logout()" title="Logout">🚪</button>
+  </div>
+</nav>
+
+<div class="dash-layout">
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <div class="user-info">
+        <div class="user-avatar" data-user-name-initial>M</div>
+        <div>
+          <div class="user-name" data-user-name>Member Ji</div>
+          <div class="user-id" data-user-id>MD00001</div>
+        </div>
+      </div>
+      <div class="wallet-box">
+        <div><div class="label">Wallet Balance</div><div class="amount" data-user-wallet>₹0.00</div></div>
+        <a href="wallet.html" class="btn btn-gold btn-sm">+ Add</a>
+      </div>
+    </div>
+    <nav class="sidebar-nav">
+      <a href="index.html" class="active"><span class="nav-icon">🏠</span> Dashboard</a>
+      <a href="wallet.html"><span class="nav-icon">💰</span> Wallet Recharge <span class="nav-badge badge badge-new">Instant</span></a>
+      <div class="nav-section-title">Government Services</div>
+      <a href="../services/aadhaar.html"><span class="nav-icon">🪪</span> Aadhaar Services</a>
+      <a href="../services/pan-card.html"><span class="nav-icon">💳</span> Pan Card Services</a>
+      <a href="../services/vehicle.html"><span class="nav-icon">🚗</span> Vehicle Services</a>
+      <a href="../services/voter-id.html"><span class="nav-icon">🗳️</span> Voter Services</a>
+      <a href="../services/ration.html"><span class="nav-icon">🌾</span> Ration Services</a>
+      <a href="../services/electric-bill.html"><span class="nav-icon">⚡</span> ElectriBill Services</a>
+      <a href="../services/farmer.html"><span class="nav-icon">👨‍🌾</span> Farmer Services</a>
+      <a href="../services/passbook.html"><span class="nav-icon">📖</span> Passbook Services</a>
+      <a href="../services/ayushman.html"><span class="nav-icon">🏥</span> Ayushman Services</a>
+      <a href="../services/other.html"><span class="nav-icon">📋</span> Other Services</a>
+      <div class="nav-section-title">My Account</div>
+      <a href="orders.html"><span class="nav-icon">📦</span> Wallet Record</a>
+      <a href="complaint.html"><span class="nav-icon">📣</span> Complaint Rise</a>
+      <a href="complaint.html"><span class="nav-icon">📋</span> Complaint List</a>
+      <a href="pricing.html"><span class="nav-icon">💲</span> Pricing</a>
+      <a href="refer.html"><span class="nav-icon">🎁</span> Refer & Earn <span class="nav-badge badge badge-new">New</span></a>
+    </nav>
+  </aside>
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+  <!-- MAIN -->
+  <main class="dash-main">
+    <div class="topbar">
+      <div class="topbar-left">
+        <button class="sidebar-toggle-btn" id="sidebarToggle">☰</button>
+        <span class="page-title">Dashboard</span>
+      </div>
+      <div class="topbar-right">
+        <a href="wallet.html" class="btn btn-gold btn-sm">💰 Recharge</a>
+        <button class="topbar-btn" onclick="logout()">🚪</button>
+      </div>
+    </div>
+
+    <div class="dash-content">
+      <!-- NOTICE -->
+      <div class="notice-bar">
+        <span class="notice-icon">📢</span>
+        <span>🎉 Welcome to MAA DIGITAL Portal! Koi problem? WhatsApp karein: <strong>9898072313</strong></span>
+      </div>
+
+      <!-- WELCOME CARD -->
+      <div class="welcome-card">
+        <h3>Namaste, <span data-user-name>Member Ji</span>! 🙏</h3>
+        <p>Aapka MAA DIGITAL portal mein swagat hai. Sabhi government services ek jagah.</p>
+        <div class="welcome-meta">
+          <div class="meta-item">Member ID: <span data-user-id>MD00001</span></div>
+          <div class="meta-item">Mobile: <span data-user-mobile>9898072313</span></div>
+          <div class="meta-item">Status: <span style="color:#22c55e">✅ Active</span></div>
+        </div>
+      </div>
+
+      <!-- STATS -->
+      <div class="stats-row">
+        <div class="stat-card"><div class="stat-icon bg-gold">💰</div><div><div class="stat-val" data-user-wallet>₹0</div><div class="stat-lbl">Wallet Balance</div></div></div>
+        <div class="stat-card"><div class="stat-icon bg-navy">📦</div><div><div class="stat-val">0</div><div class="stat-lbl">Total Orders</div></div></div>
+        <div class="stat-card"><div class="stat-icon bg-success">✅</div><div><div class="stat-val">0</div><div class="stat-lbl">Completed</div></div></div>
+        <div class="stat-card"><div class="stat-icon bg-info">⏳</div><div><div class="stat-val">0</div><div class="stat-lbl">Pending</div></div></div>
+      </div>
+
+      <!-- QUICK ACTIONS -->
+      <div class="quick-actions">
+        <a href="wallet.html" class="qa-card"><div class="qa-icon">💰</div><h5>Wallet Recharge</h5></a>
+        <a href="orders.html" class="qa-card"><div class="qa-icon">📦</div><h5>My Orders</h5></a>
+        <a href="complaint.html" class="qa-card"><div class="qa-icon">📣</div><h5>Complaint</h5></a>
+        <a href="refer.html" class="qa-card"><div class="qa-icon">🎁</div><h5>Refer & Earn</h5></a>
+      </div>
+
+      <!-- SERVICES -->
+      <div class="card mb-3">
+        <div class="card-header"><h4>⚡ All Services</h4><a href="../services/aadhaar.html" style="font-size:.8rem;color:var(--navy)">Sab dekho →</a></div>
+        <div class="card-body">
+          <div class="services-grid">
+            <a href="../services/aadhaar.html" class="dash-service-card"><div class="ds-icon">🪪</div><h5>Aadhaar</h5></a>
+            <a href="../services/pan-card.html" class="dash-service-card"><div class="ds-icon">💳</div><h5>Pan Card</h5></a>
+            <a href="../services/vehicle.html" class="dash-service-card"><div class="ds-icon">🚗</div><h5>Vehicle</h5></a>
+            <a href="../services/voter-id.html" class="dash-service-card"><div class="ds-icon">🗳️</div><h5>Voter ID</h5></a>
+            <a href="../services/ration.html" class="dash-service-card"><div class="ds-icon">🌾</div><h5>Ration</h5></a>
+            <a href="../services/electric-bill.html" class="dash-service-card"><div class="ds-icon">⚡</div><h5>Electric Bill</h5></a>
+            <a href="../services/farmer.html" class="dash-service-card"><div class="ds-icon">👨‍🌾</div><h5>Farmer</h5></a>
+            <a href="../services/passbook.html" class="dash-service-card"><div class="ds-icon">📖</div><h5>Passbook</h5></a>
+            <a href="../services/ayushman.html" class="dash-service-card"><div class="ds-icon">🏥</div><h5>Ayushman</h5></a>
+            <a href="../services/other.html" class="dash-service-card"><div class="ds-icon">📋</div><h5>Others</h5></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- RECENT ORDERS + SUPPORT -->
+      <div class="dash-grid">
+        <div class="card">
+          <div class="card-header"><h4>📦 Recent Orders</h4><a href="orders.html" style="font-size:.8rem;color:var(--navy)">Sab dekho →</a></div>
+          <div class="card-body">
+            <div class="empty-state"><div class="empty-icon">📭</div><h4>Koi order nahi</h4><p>Abhi tak koi service order nahi ki. Upar se service chunein.</p></div>
+          </div>
+        </div>
+        <div class="support-card">
+          <h4>🆘 Help & Support</h4>
+          <p>Koi problem? Hum yahan hain aapki help ke liye!</p>
+          <div class="support-actions">
+            <a href="https://wa.me/919898072313" class="btn btn-whatsapp">💬 WhatsApp Karein</a>
+            <a href="tel:9898072313" class="btn btn-outline-gold">📞 Call: 9898072313</a>
+            <a href="complaint.html" class="btn btn-outline" style="color:#fff;border-color:rgba(255,255,255,.2)">📣 Complaint Darj Karein</a>
+          </div>
+          <div style="margin-top:16px;padding-top:14px;border-top:1px solid rgba(255,255,255,.1)">
+            <p style="font-size:.75rem;color:var(--gray-400)">📍 Near SBI Bank, Ghoghamba<br>⏰ Mon-Sat: 9AM - 8PM</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script src="../assets/js/main.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded',()=>{
+  const user = Store.get('user');
+  if(!user) { window.location.href='../login.html'; return; }
+  initLiveTime('#liveTime');
+  document.getElementById('sidebarToggle').addEventListener('click',()=>{
+    document.getElementById('sidebar').classList.toggle('open');
+    document.getElementById('sidebarOverlay').classList.toggle('show');
+  });
+  document.getElementById('sidebarOverlay').addEventListener('click',()=>{
+    document.getElementById('sidebar').classList.remove('open');
+    document.getElementById('sidebarOverlay').classList.remove('show');
+  });
+});
+</script>
+</body>
+</html>

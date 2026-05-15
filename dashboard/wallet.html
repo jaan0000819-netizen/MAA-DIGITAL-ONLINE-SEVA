@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Wallet - MAA DIGITAL</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+<link rel="stylesheet" href="../assets/css/dashboard.css">
+</head>
+<body>
+<nav class="navbar">
+  <div class="navbar-brand"><div class="logo-icon">🌐</div><div><div class="brand-name">MAA DIGITAL</div><div class="brand-sub">Member Portal</div></div></div>
+  <div class="navbar-actions"><span class="live-time" id="liveTime">--:--:--</span><button class="topbar-btn" onclick="logout()">🚪</button></div>
+</nav>
+<div class="dash-layout">
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header"><div class="user-info"><div class="user-avatar">M</div><div><div class="user-name" data-user-name>Member Ji</div><div class="user-id" data-user-id>MD00001</div></div></div><div class="wallet-box"><div><div class="label">Wallet Balance</div><div class="amount" data-user-wallet>₹0.00</div></div><a href="wallet.html" class="btn btn-gold btn-sm">+ Add</a></div></div>
+    <nav class="sidebar-nav">
+      <a href="index.html"><span class="nav-icon">🏠</span> Dashboard</a>
+      <a href="wallet.html" class="active"><span class="nav-icon">💰</span> Wallet Recharge</a>
+      <div class="nav-section-title">Services</div>
+      <a href="../services/aadhaar.html"><span class="nav-icon">🪪</span> Aadhaar Services</a>
+      <a href="../services/pan-card.html"><span class="nav-icon">💳</span> Pan Card Services</a>
+      <a href="../services/vehicle.html"><span class="nav-icon">🚗</span> Vehicle Services</a>
+      <a href="../services/voter-id.html"><span class="nav-icon">🗳️</span> Voter Services</a>
+      <a href="../services/ration.html"><span class="nav-icon">🌾</span> Ration Services</a>
+      <a href="../services/electric-bill.html"><span class="nav-icon">⚡</span> ElectriBill</a>
+      <a href="../services/farmer.html"><span class="nav-icon">👨‍🌾</span> Farmer Services</a>
+      <a href="../services/passbook.html"><span class="nav-icon">📖</span> Passbook</a>
+      <a href="../services/ayushman.html"><span class="nav-icon">🏥</span> Ayushman</a>
+      <a href="../services/other.html"><span class="nav-icon">📋</span> Other Services</a>
+      <div class="nav-section-title">Account</div>
+      <a href="orders.html"><span class="nav-icon">📦</span> Wallet Record</a>
+      <a href="complaint.html"><span class="nav-icon">📣</span> Complaint Rise</a>
+      <a href="pricing.html"><span class="nav-icon">💲</span> Pricing</a>
+      <a href="refer.html"><span class="nav-icon">🎁</span> Refer & Earn</a>
+    </nav>
+  </aside>
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+  <main class="dash-main">
+    <div class="topbar">
+      <div class="topbar-left"><button class="sidebar-toggle-btn" id="sidebarToggle">☰</button><span class="page-title">💰 Wallet Recharge</span></div>
+    </div>
+    <div class="dash-content">
+      <div class="grid-2" style="gap:20px;align-items:start">
+        <div>
+          <!-- Balance Card -->
+          <div class="welcome-card mb-3">
+            <h3>💰 Wallet Balance</h3>
+            <div style="font-family:var(--font-head);font-size:2.5rem;color:var(--gold);margin:14px 0" data-user-wallet>₹0.00</div>
+            <p style="color:var(--gray-400);font-size:.82rem">Last Recharge: Never</p>
+          </div>
+          <!-- Quick Amounts -->
+          <div class="card mb-3">
+            <div class="card-header"><h4>⚡ Quick Recharge</h4></div>
+            <div class="card-body">
+              <div id="alertBox"></div>
+              <div class="grid-3" style="gap:10px;margin-bottom:16px">
+                <button class="btn btn-outline" onclick="setAmt(100)">₹100</button>
+                <button class="btn btn-outline" onclick="setAmt(200)">₹200</button>
+                <button class="btn btn-outline" onclick="setAmt(500)">₹500</button>
+                <button class="btn btn-outline" onclick="setAmt(1000)">₹1000</button>
+                <button class="btn btn-outline" onclick="setAmt(2000)">₹2000</button>
+                <button class="btn btn-outline" onclick="setAmt(5000)">₹5000</button>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Custom Amount</label>
+                <div class="input-group"><span class="input-icon">₹</span><input type="number" id="amtInput" class="form-control" placeholder="Enter amount"></div>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Payment Method</label>
+                <select class="form-control">
+                  <option>UPI / Google Pay / PhonePe</option>
+                  <option>Net Banking</option>
+                  <option>Cash (Visit Shop)</option>
+                </select>
+              </div>
+              <button class="btn btn-gold btn-block btn-lg" onclick="recharge()">💳 Recharge Karein</button>
+              <p style="text-align:center;font-size:.78rem;color:var(--gray-400);margin-top:10px">Ya phir: <a href="https://wa.me/919898072313" style="color:var(--navy)">WhatsApp karein</a> manual recharge ke liye</p>
+            </div>
+          </div>
+        </div>
+        <!-- Transaction History -->
+        <div class="card">
+          <div class="card-header"><h4>📋 Transaction History</h4></div>
+          <div class="card-body">
+            <div class="empty-state"><div class="empty-icon">💸</div><h4>Koi transaction nahi</h4><p>Abhi tak koi wallet transaction nahi hai.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+<script src="../assets/js/main.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded',()=>{
+  if(!Store.get('user'))window.location.href='../login.html';
+  initLiveTime('#liveTime');loadUserInfo();
+  document.getElementById('sidebarToggle').addEventListener('click',()=>{document.getElementById('sidebar').classList.toggle('open');document.getElementById('sidebarOverlay').classList.toggle('show');});
+  document.getElementById('sidebarOverlay').addEventListener('click',()=>{document.getElementById('sidebar').classList.remove('open');document.getElementById('sidebarOverlay').classList.remove('show');});
+});
+function setAmt(n){document.getElementById('amtInput').value=n;}
+function recharge(){
+  const amt=document.getElementById('amtInput').value;
+  if(!amt||amt<10){showAlert('Minimum ₹10 recharge karein','danger');return;}
+  showAlert(`₹${amt} recharge request submit ho gayi! 24 ghante mein add hoga ya WhatsApp karein.`,'success');
+}
+</script>
+</body>
+</html>

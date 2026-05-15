@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Refer & Earn - MAA DIGITAL</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+<link rel="stylesheet" href="../assets/css/dashboard.css">
+</head>
+<body>
+<nav class="navbar"><div class="navbar-brand"><div class="logo-icon">🌐</div><div><div class="brand-name">MAA DIGITAL</div><div class="brand-sub">Member Portal</div></div></div><div class="navbar-actions"><button class="topbar-btn" onclick="logout()">🚪</button></div></nav>
+<div class="dash-layout">
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header"><div class="user-info"><div class="user-avatar">M</div><div><div class="user-name" data-user-name>Member Ji</div><div class="user-id" data-user-id>MD00001</div></div></div></div>
+    <nav class="sidebar-nav">
+      <a href="index.html"><span class="nav-icon">🏠</span> Dashboard</a><a href="wallet.html"><span class="nav-icon">💰</span> Wallet</a>
+      <div class="nav-section-title">Services</div>
+      <a href="../services/aadhaar.html"><span class="nav-icon">🪪</span> Aadhaar</a><a href="../services/pan-card.html"><span class="nav-icon">💳</span> PAN</a><a href="../services/other.html"><span class="nav-icon">📋</span> Others</a>
+      <div class="nav-section-title">Account</div>
+      <a href="orders.html"><span class="nav-icon">📦</span> Orders</a><a href="complaint.html"><span class="nav-icon">📣</span> Complaint</a><a href="pricing.html"><span class="nav-icon">💲</span> Pricing</a><a href="refer.html" class="active"><span class="nav-icon">🎁</span> Refer & Earn</a>
+    </nav>
+  </aside>
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+  <main class="dash-main">
+    <div class="topbar"><div class="topbar-left"><button class="sidebar-toggle-btn" id="sidebarToggle">☰</button><span class="page-title">🎁 Refer & Earn</span></div></div>
+    <div class="dash-content">
+      <div class="welcome-card" style="text-align:center;margin-bottom:20px">
+        <div style="font-size:3rem;margin-bottom:10px">🎁</div>
+        <h3>Refer Karein, <span>₹50 Kamayein!</span></h3>
+        <p style="color:var(--gray-300)">Har successful referral par aapko ₹50 wallet mein milenge</p>
+      </div>
+      <div class="grid-2" style="gap:20px;align-items:start">
+        <div class="card">
+          <div class="card-header"><h4>🔗 Aapka Referral Code</h4></div>
+          <div class="card-body">
+            <div style="background:var(--gray-50);border:2px dashed var(--gold);border-radius:12px;padding:20px;text-align:center;margin-bottom:16px">
+              <div style="font-size:.75rem;color:var(--gray-400);margin-bottom:8px">YOUR REFERRAL CODE</div>
+              <div id="refCode" style="font-family:var(--font-mono);font-size:1.8rem;font-weight:700;color:var(--navy);letter-spacing:4px">MD00001</div>
+            </div>
+            <div style="display:flex;gap:10px">
+              <button class="btn btn-navy w-100" onclick="copyCode()">📋 Code Copy Karein</button>
+              <a href="https://wa.me/?text=MAA%20DIGITAL%20join%20karein%20aur%20government%20services%20fast%20pao!%20Referral%20code:%20MD00001%20-%209898072313" class="btn btn-whatsapp w-100" target="_blank">📤 Share</a>
+            </div>
+            <div id="alertBox" class="mt-2"></div>
+          </div>
+        </div>
+        <div>
+          <div class="card mb-3">
+            <div class="card-header"><h4>📊 Earning Stats</h4></div>
+            <div class="card-body">
+              <div class="stats-row" style="grid-template-columns:repeat(2,1fr)">
+                <div class="stat-card"><div class="stat-icon bg-gold">👥</div><div><div class="stat-val">0</div><div class="stat-lbl">Total Referrals</div></div></div>
+                <div class="stat-card"><div class="stat-icon bg-success">💰</div><div><div class="stat-val">₹0</div><div class="stat-lbl">Total Earned</div></div></div>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header"><h4>ℹ️ Kaise Kaam Karta Hai</h4></div>
+            <div class="card-body">
+              <div style="display:flex;flex-direction:column;gap:14px">
+                <div style="display:flex;gap:12px;align-items:flex-start"><div style="width:32px;height:32px;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--navy);flex-shrink:0">1</div><div><strong>Code Share Karein</strong><br><span style="font-size:.82rem;color:var(--gray-600)">Apna referral code dosto ko bhejein</span></div></div>
+                <div style="display:flex;gap:12px;align-items:flex-start"><div style="width:32px;height:32px;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--navy);flex-shrink:0">2</div><div><strong>Register Karein</strong><br><span style="font-size:.82rem;color:var(--gray-600)">Dost aapke code se register kare</span></div></div>
+                <div style="display:flex;gap:12px;align-items:flex-start"><div style="width:32px;height:32px;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--navy);flex-shrink:0">3</div><div><strong>₹50 Paaiye</strong><br><span style="font-size:.82rem;color:var(--gray-600)">Pehle order par aapko ₹50 wallet mein</span></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+<script src="../assets/js/main.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded',()=>{
+  if(!Store.get('user'))window.location.href='../login.html';
+  const user=Store.get('user');
+  if(user)document.getElementById('refCode').textContent=user.id||'MD00001';
+  loadUserInfo();
+  document.getElementById('sidebarToggle').addEventListener('click',()=>{document.getElementById('sidebar').classList.toggle('open');document.getElementById('sidebarOverlay').classList.toggle('show');});
+  document.getElementById('sidebarOverlay').addEventListener('click',()=>{document.getElementById('sidebar').classList.remove('open');document.getElementById('sidebarOverlay').classList.remove('show');});
+});
+function copyCode(){navigator.clipboard.writeText(document.getElementById('refCode').textContent);showAlert('Referral code copy ho gaya!','success');}
+</script>
+</body>
+</html>

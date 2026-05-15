@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>My Orders - MAA DIGITAL</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+<link rel="stylesheet" href="../assets/css/dashboard.css">
+</head>
+<body>
+<nav class="navbar"><div class="navbar-brand"><div class="logo-icon">🌐</div><div><div class="brand-name">MAA DIGITAL</div><div class="brand-sub">Member Portal</div></div></div><div class="navbar-actions"><button class="topbar-btn" onclick="logout()">🚪</button></div></nav>
+<div class="dash-layout">
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header"><div class="user-info"><div class="user-avatar">M</div><div><div class="user-name" data-user-name>Member Ji</div><div class="user-id" data-user-id>MD00001</div></div></div><div class="wallet-box"><div><div class="label">Wallet</div><div class="amount" data-user-wallet>₹0.00</div></div><a href="wallet.html" class="btn btn-gold btn-sm">+ Add</a></div></div>
+    <nav class="sidebar-nav">
+      <a href="index.html"><span class="nav-icon">🏠</span> Dashboard</a>
+      <a href="wallet.html"><span class="nav-icon">💰</span> Wallet Recharge</a>
+      <div class="nav-section-title">Services</div>
+      <a href="../services/aadhaar.html"><span class="nav-icon">🪪</span> Aadhaar</a>
+      <a href="../services/pan-card.html"><span class="nav-icon">💳</span> Pan Card</a>
+      <a href="../services/vehicle.html"><span class="nav-icon">🚗</span> Vehicle</a>
+      <a href="../services/voter-id.html"><span class="nav-icon">🗳️</span> Voter</a>
+      <a href="../services/ration.html"><span class="nav-icon">🌾</span> Ration</a>
+      <a href="../services/electric-bill.html"><span class="nav-icon">⚡</span> Electric</a>
+      <a href="../services/farmer.html"><span class="nav-icon">👨‍🌾</span> Farmer</a>
+      <a href="../services/ayushman.html"><span class="nav-icon">🏥</span> Ayushman</a>
+      <a href="../services/other.html"><span class="nav-icon">📋</span> Others</a>
+      <div class="nav-section-title">Account</div>
+      <a href="orders.html" class="active"><span class="nav-icon">📦</span> Wallet Record</a>
+      <a href="complaint.html"><span class="nav-icon">📣</span> Complaint</a>
+      <a href="pricing.html"><span class="nav-icon">💲</span> Pricing</a>
+      <a href="refer.html"><span class="nav-icon">🎁</span> Refer & Earn</a>
+    </nav>
+  </aside>
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+  <main class="dash-main">
+    <div class="topbar"><div class="topbar-left"><button class="sidebar-toggle-btn" id="sidebarToggle">☰</button><span class="page-title">📦 My Orders</span></div>
+    <div class="topbar-right">
+      <select class="form-control" style="width:auto;padding:6px 12px;font-size:.82rem">
+        <option>All Orders</option><option>Pending</option><option>Completed</option><option>Rejected</option>
+      </select>
+    </div></div>
+    <div class="dash-content">
+      <div class="stats-row" style="grid-template-columns:repeat(4,1fr)">
+        <div class="stat-card"><div class="stat-icon bg-navy">📦</div><div><div class="stat-val">0</div><div class="stat-lbl">Total Orders</div></div></div>
+        <div class="stat-card"><div class="stat-icon bg-warning">⏳</div><div><div class="stat-val">0</div><div class="stat-lbl">Pending</div></div></div>
+        <div class="stat-card"><div class="stat-icon bg-success">✅</div><div><div class="stat-val">0</div><div class="stat-lbl">Completed</div></div></div>
+        <div class="stat-card"><div class="stat-icon bg-danger">❌</div><div><div class="stat-val">0</div><div class="stat-lbl">Rejected</div></div></div>
+      </div>
+      <div class="card">
+        <div class="card-header"><h4>📋 Order History</h4></div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Order ID</th><th>Service</th><th>Name</th><th>Date</th><th>Amount</th><th>Status</th><th>Action</th></tr></thead>
+            <tbody>
+              <tr><td colspan="7"><div class="empty-state"><div class="empty-icon">📭</div><h4>Koi order nahi mila</h4><p>Dashboard se koi service select karein aur apply karein.</p><a href="index.html" class="btn btn-navy mt-2">Services Dekho</a></div></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+<script src="../assets/js/main.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded',()=>{
+  if(!Store.get('user'))window.location.href='../login.html';loadUserInfo();
+  document.getElementById('sidebarToggle').addEventListener('click',()=>{document.getElementById('sidebar').classList.toggle('open');document.getElementById('sidebarOverlay').classList.toggle('show');});
+  document.getElementById('sidebarOverlay').addEventListener('click',()=>{document.getElementById('sidebar').classList.remove('open');document.getElementById('sidebarOverlay').classList.remove('show');});
+});
+</script>
+</body>
+</html>
