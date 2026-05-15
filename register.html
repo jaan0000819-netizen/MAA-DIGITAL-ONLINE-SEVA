@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Register - MAA DIGITAL</title>
+<link rel="stylesheet" href="assets/css/style.css">
+<style>
+.auth-page{min-height:100vh;background:linear-gradient(135deg,var(--navy-dark),var(--navy));padding:80px 20px 40px;display:flex;align-items:flex-start;justify-content:center}
+.reg-box{background:#fff;border-radius:var(--radius-lg);box-shadow:var(--shadow-lg);width:100%;max-width:720px;overflow:hidden}
+.reg-header{background:linear-gradient(135deg,var(--navy),var(--navy-light));padding:28px 32px;display:flex;align-items:center;justify-content:space-between}
+.reg-header h3{color:#fff;margin:0}.reg-header p{color:var(--gray-400);font-size:.82rem;margin:0}
+.reg-body{padding:32px}
+.section-divider{font-size:.72rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--navy);padding:8px 0;border-bottom:2px solid var(--gold);margin:20px 0 16px;display:flex;align-items:center;gap:8px}
+</style>
+</head>
+<body>
+<div class="auth-page">
+  <div class="reg-box">
+    <div class="reg-header">
+      <div>
+        <h3>📝 New Registration</h3>
+        <p>MAA DIGITAL mein naya account banayein</p>
+      </div>
+      <a href="login.html" class="btn btn-outline-gold btn-sm">← Login</a>
+    </div>
+    <div class="reg-body">
+      <div id="alertBox"></div>
+      <form id="registerForm">
+        <div class="section-divider">👤 Personal Information</div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Full Name <span class="req">*</span></label>
+            <div class="input-group"><span class="input-icon">👤</span><input type="text" class="form-control" placeholder="Aapka poora naam" required></div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Mobile Number <span class="req">*</span></label>
+            <div class="input-group"><span class="input-icon">📱</span><input type="tel" class="form-control" placeholder="10 digit number" maxlength="10" required></div>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Email (Optional)</label>
+            <div class="input-group"><span class="input-icon">📧</span><input type="email" class="form-control" placeholder="email@example.com"></div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Date of Birth</label>
+            <div class="input-group"><span class="input-icon">📅</span><input type="date" class="form-control"></div>
+          </div>
+        </div>
+
+        <div class="section-divider">📍 Location Details</div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">State <span class="req">*</span></label>
+            <select class="form-control" required><option value="">Select State</option><option selected>Gujarat</option><option>Rajasthan</option><option>Maharashtra</option></select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">District <span class="req">*</span></label>
+            <select class="form-control" required><option value="">Select District</option><option selected>Panchmahal</option><option>Vadodara</option><option>Anand</option></select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Village / City</label>
+            <div class="input-group"><span class="input-icon">🏘️</span><input type="text" class="form-control" placeholder="Ghoghamba"></div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">PIN Code</label>
+            <div class="input-group"><span class="input-icon">📮</span><input type="text" class="form-control" placeholder="389365" maxlength="6"></div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Full Address</label>
+          <textarea class="form-control" placeholder="Ghar ka address likhein..." rows="2"></textarea>
+        </div>
+
+        <div class="section-divider">🔒 Security</div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Password <span class="req">*</span></label>
+            <div class="input-group">
+              <span class="input-icon">🔒</span>
+              <input type="password" id="password" class="form-control" placeholder="Strong password" required>
+              <span class="input-suffix" onclick="togglePass('password')">👁️</span>
+            </div>
+            <div class="form-hint">Min 6 characters</div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Confirm Password <span class="req">*</span></label>
+            <div class="input-group">
+              <span class="input-icon">🔒</span>
+              <input type="password" id="cpassword" class="form-control" placeholder="Dobara daalen" required>
+              <span class="input-suffix" onclick="togglePass('cpassword')">👁️</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Referral Code (Optional)</label>
+          <div class="input-group"><span class="input-icon">🎁</span><input type="text" class="form-control" placeholder="Kisi ne refer kiya? Code daalen"></div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-check">
+            <input type="checkbox" required>
+            <span class="form-check-label">Main <a href="#" style="color:var(--navy)">Terms & Conditions</a> se agree karta/karti hoon. Meri deni gayi information sahi hai.</span>
+          </label>
+        </div>
+
+        <button type="submit" class="btn btn-navy btn-block btn-lg">📝 Register Karein</button>
+        <p style="text-align:center;margin-top:16px;font-size:.84rem;color:var(--gray-600)">
+          Pehle se account hai? <a href="login.html" style="color:var(--navy);font-weight:700">Login Karein →</a>
+        </p>
+      </form>
+    </div>
+  </div>
+</div>
+<a href="https://wa.me/919898072313" class="wa-float" target="_blank">💬</a>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/auth.js"></script>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Login - MAA DIGITAL</title>
+<link rel="stylesheet" href="assets/css/style.css">
+<style>
+.auth-page{min-height:100vh;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--navy-dark) 0%,var(--navy) 100%);padding:20px}
+.auth-box{background:#fff;border-radius:var(--radius-lg);box-shadow:var(--shadow-lg);overflow:hidden;width:100%;max-width:900px;display:grid;grid-template-columns:1fr 1fr}
+.auth-left{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-light) 100%);padding:40px;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden}
+.auth-left::before{content:'';position:absolute;right:-60px;top:-60px;width:200px;height:200px;border-radius:50%;background:rgba(245,200,66,.06)}
+.auth-left h2{color:#fff;margin-bottom:10px}
+.auth-left p{color:var(--gray-400);font-size:.88rem;margin-bottom:28px}
+.auth-features li{display:flex;align-items:center;gap:10px;padding:8px 0;color:var(--gray-300);font-size:.85rem;border-bottom:1px solid rgba(255,255,255,.06)}
+.auth-features li:last-child{border:none}
+.auth-features li span:first-child{color:var(--gold)}
+.auth-right{padding:36px}
+.role-tabs{display:flex;gap:8px;margin-bottom:24px;background:var(--gray-100);padding:4px;border-radius:10px}
+.role-tab{flex:1;padding:8px;border:none;border-radius:8px;background:none;font-size:.85rem;font-weight:600;cursor:pointer;color:var(--gray-600);transition:var(--transition)}
+.role-tab.active{background:#fff;color:var(--navy);box-shadow:var(--shadow-sm)}
+.divider-text{text-align:center;margin:16px 0;position:relative;color:var(--gray-400);font-size:.8rem}
+.divider-text::before,.divider-text::after{content:'';position:absolute;top:50%;width:40%;height:1px;background:var(--gray-200)}
+.divider-text::before{left:0}.divider-text::after{right:0}
+@media(max-width:700px){.auth-box{grid-template-columns:1fr}.auth-left{display:none}}
+</style>
+</head>
+<body>
+<div class="auth-page">
+  <div class="auth-box">
+    <div class="auth-left">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:28px">
+        <div class="logo-icon">🌐</div>
+        <div><div class="brand-name">MAA DIGITAL</div><div class="brand-sub">Cyber Cafe</div></div>
+      </div>
+      <h2>Digital India<br><span style="color:var(--gold)">Portal</span></h2>
+      <p>Ghoghamba ki #1 Trusted Cyber Cafe</p>
+      <ul class="auth-features">
+        <li><span>✅</span> Aadhaar, PAN, Voter ID Services</li>
+        <li><span>✅</span> Instant Wallet Recharge</li>
+        <li><span>✅</span> Order Track Karein Online</li>
+        <li><span>✅</span> 100% Secure & Genuine</li>
+        <li><span>✅</span> WhatsApp Support 24/7</li>
+      </ul>
+      <div style="margin-top:24px;padding-top:20px;border-top:1px solid rgba(255,255,255,.1)">
+        <p style="font-size:.78rem;color:var(--gray-500)">Need help?</p>
+        <a href="https://wa.me/919898072313" style="color:var(--gold);font-size:.85rem;font-weight:600">💬 WhatsApp: 9898072313</a>
+      </div>
+    </div>
+    <div class="auth-right">
+      <h3 style="margin-bottom:6px">Welcome Back 👋</h3>
+      <p style="margin-bottom:20px;font-size:.85rem">Account mein login karein</p>
+      <div class="role-tabs">
+        <button class="role-tab active" data-role="member" onclick="setRole('member',this)">👤 Member Login</button>
+        <button class="role-tab" data-role="admin" onclick="setRole('admin',this)">🔐 Admin Login</button>
+      </div>
+      <div id="alertBox"></div>
+      <form id="loginForm">
+        <input type="hidden" name="role" id="roleInput" value="member">
+        <div class="form-group">
+          <label class="form-label">Mobile Number <span class="req">*</span></label>
+          <div class="input-group">
+            <span class="input-icon">📱</span>
+            <input type="tel" id="mobile" class="form-control" placeholder="10 digit mobile number" maxlength="10" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Password <span class="req">*</span></label>
+          <div class="input-group">
+            <span class="input-icon">🔒</span>
+            <input type="password" id="password" class="form-control" placeholder="Password daalen" required>
+            <span class="input-suffix" onclick="togglePassLocal()">👁️</span>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px">
+          <label class="form-check">
+            <input type="checkbox"> <span class="form-check-label">Remember me</span>
+          </label>
+          <a href="forgot-password.html" style="font-size:.82rem;color:var(--navy);font-weight:600">Password bhool gaye?</a>
+        </div>
+        <button type="submit" class="btn btn-navy btn-block btn-lg">🔐 Login Karein</button>
+      </form>
+      <div class="divider-text">ya phir</div>
+      <div style="display:flex;gap:10px">
+        <a href="https://wa.me/919898072313" class="btn btn-whatsapp w-100">💬 WhatsApp Login Help</a>
+      </div>
+      <p style="text-align:center;margin-top:20px;font-size:.84rem;color:var(--gray-600)">
+        Naya account? <a href="register.html" style="color:var(--navy);font-weight:700">Register Karein →</a>
+      </p>
+    </div>
+  </div>
+</div>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/auth.js"></script>
+<script>
+function setRole(role, el) {
+  document.getElementById('roleInput').value = role;
+  document.querySelectorAll('.role-tab').forEach(t=>t.classList.remove('active'));
+  el.classList.add('active');
+}
+function togglePassLocal() { togglePass('password'); }
+</script>
+</body>
+</html>
