@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ration Services - MAA DIGITAL</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+<nav class="navbar">
+  <div class="navbar-brand"><div class="logo-icon">🌐</div><div><div class="brand-name">MAA DIGITAL</div><div class="brand-sub">Cyber Cafe</div></div></div>
+  <div class="navbar-nav"><a href="../index.html">Home</a><a href="../index.html#services">Services</a><a href="../index.html#contact">Contact</a></div>
+  <div class="navbar-actions"><a href="../dashboard/index.html" class="btn btn-gold btn-sm">Dashboard</a><button class="nav-toggle" onclick="document.querySelector('.mobile-menu').classList.toggle('open')">☰</button></div>
+</nav>
+<div class="mobile-menu"><a href="../index.html">🏠 Home</a><a href="../index.html#services">⚡ Services</a><a href="../dashboard/index.html">👤 Dashboard</a></div>
+<div class="page-header">
+  <div class="container">
+    <div class="breadcrumb"><a href="../index.html">Home</a><span>›</span><a href="../index.html#services">Services</a><span>›</span>Ration Services</div>
+    <h1>🌾 Ration Services</h1>
+    <p>New ration card, name add/remove aur address change</p>
+  </div>
+</div>
+<section class="section">
+  <div class="container">
+    <div class="grid-2" style="gap:30px;align-items:start">
+      <div>
+        <div class="section-header" style="text-align:left;margin-bottom:24px">
+          <div class="section-tag">Sub Services</div>
+          <h2>Ration Services <span class="text-gold">Services</span></h2>
+          <div class="divider" style="margin:12px 0 0"></div>
+        </div>
+        <div id="subServices" style="display:flex;flex-direction:column;gap:12px"></div>
+      </div>
+      <div>
+        <div class="card mb-3">
+          <div class="card-header"><h4>📋 Documents Required</h4></div>
+          <div class="card-body" id="docsList"></div>
+        </div>
+        <div class="card mb-3">
+          <div class="card-header"><h4>⏱️ Processing Time & Price</h4></div>
+          <div class="card-body" id="priceInfo"></div>
+        </div>
+        <div class="card" style="background:linear-gradient(135deg,var(--navy),var(--navy-light))">
+          <div class="card-body" style="text-align:center">
+            <h4 style="color:var(--gold);margin-bottom:8px">Apply Karna Hai?</h4>
+            <p style="color:var(--gray-400);font-size:.84rem;margin-bottom:16px">Dashboard se apply karein ya directly WhatsApp karein</p>
+            <div style="display:flex;flex-direction:column;gap:10px">
+              <a href="../dashboard/index.html" class="btn btn-gold btn-block">📝 Dashboard se Apply</a>
+              <a href="https://wa.me/919898072313?text=Mujhe Ration Services service chahiye" class="btn btn-whatsapp btn-block" target="_blank">💬 WhatsApp Karein</a>
+              <a href="tel:9898072313" class="btn btn-block" style="background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.2)">📞 Call: 9898072313</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="contact-section" style="padding:40px 0">
+  <div class="container" style="text-align:center">
+    <h3 style="color:#fff;margin-bottom:8px">📍 MAA DIGITAL Cyber Cafe</h3>
+    <p style="color:var(--gray-400)">Near SBI Bank, Ghoghamba-389365 | ⏰ Mon-Sat 9AM-8PM | 📞 9898072313</p>
+  </div>
+</div>
+<a href="https://wa.me/919898072313" class="wa-float" target="_blank">💬</a>
+<script src="../assets/js/main.js"></script>
+<script>
+const pageData = {
+  'aadhaar.html':{subs:[{n:'Address Update',p:'₹50',t:'2-3 days'},{n:'Mobile Number Link',p:'₹30',t:'Same day'},{n:'Download e-Aadhaar',p:'₹10',t:'Instant'},{n:'Name Correction',p:'₹50',t:'7-10 days'},{n:'DOB Correction',p:'₹50',t:'7-10 days'},{n:'Photo Update',p:'₹50',t:'7-10 days'}],docs:['Koi bhi original ID proof','Mobile number (registered)','Old Aadhaar card'],price:'₹10 - ₹100'},
+  'pan-card.html':{subs:[{n:'New PAN Card Apply',p:'₹100',t:'15-20 days'},{n:'PAN Correction',p:'₹100',t:'15-20 days'},{n:'PAN Aadhaar Link',p:'₹30',t:'Same day'},{n:'PAN Download',p:'₹20',t:'Instant'},{n:'Duplicate PAN',p:'₹100',t:'15-20 days'}],docs:['Aadhaar Card','Photo','Mobile Number','Email ID'],price:'₹20 - ₹150'},
+  'voter-id.html':{subs:[{n:'New Voter ID Apply',p:'₹50',t:'30-45 days'},{n:'Name Correction',p:'₹50',t:'30-45 days'},{n:'Address Change',p:'₹50',t:'30-45 days'},{n:'Photo Change',p:'₹50',t:'30-45 days'},{n:'Voter ID Download',p:'₹20',t:'Instant'}],docs:['Aadhaar Card','Address Proof','Age Proof (18+)','Photo'],price:'₹20 - ₹100'},
+  'ayushman.html':{subs:[{n:'New Ayushman Card',p:'₹50',t:'7-15 days'},{n:'Card Download',p:'₹20',t:'Instant'},{n:'Name Correction',p:'₹50',t:'15 days'},{n:'Family Member Add',p:'₹50',t:'15 days'}],docs:['Aadhaar Card','Ration Card','Mobile Number','Income Certificate (if needed)'],price:'₹20 - ₹100'},
+  'vehicle.html':{subs:[{n:'New Driving Licence',p:'₹500',t:'30 days'},{n:'DL Renewal',p:'₹300',t:'15 days'},{n:'RC Transfer',p:'₹200',t:'30 days'},{n:'Vehicle Insurance',p:'Varies',t:'Same day'},{n:'Pollution Certificate',p:'₹150',t:'Same day'},{n:'RC Download',p:'₹20',t:'Instant'}],docs:['Aadhaar Card','Photo','Address Proof','Old DL (for renewal)','Medical Certificate'],price:'₹20 - ₹600'},
+  'ration.html':{subs:[{n:'New Ration Card Apply',p:'₹100',t:'30-45 days'},{n:'Name Add/Remove',p:'₹50',t:'15-20 days'},{n:'Address Change',p:'₹50',t:'15-20 days'},{n:'Ration Card Download',p:'₹20',t:'Instant'}],docs:['Aadhaar Card (sabka)','Family Photo','Income Certificate','Gas Connection Proof'],price:'₹20 - ₹150'},
+  'electric-bill.html':{subs:[{n:'Bill Payment',p:'₹10',t:'Instant'},{n:'New Connection Apply',p:'₹100',t:'15-30 days'},{n:'Name Transfer',p:'₹100',t:'30 days'},{n:'Bill Download',p:'₹5',t:'Instant'},{n:'Complaint Register',p:'₹20',t:'1-2 days'}],docs:['Aadhaar Card','Previous Bill','Property Proof (for new)','Mobile Number'],price:'₹5 - ₹200'},
+  'farmer.html':{subs:[{n:'PM Kisan Registration',p:'₹50',t:'7-15 days'},{n:'Soil Health Card',p:'₹50',t:'30 days'},{n:'Kisan Credit Card',p:'₹100',t:'30-45 days'},{n:'Fasal Bima Yojana',p:'₹100',t:'15 days'},{n:'PM Kisan Status Check',p:'₹20',t:'Instant'}],docs:['Aadhaar Card','Land Documents (7/12)','Bank Passbook','Mobile Number'],price:'₹20 - ₹150'},
+  'passbook.html':{subs:[{n:'Passbook Entry/Print',p:'₹20',t:'Instant'},{n:'Bank Statement',p:'₹30',t:'Instant'},{n:'Account Balance Check',p:'₹10',t:'Instant'},{n:'Net Banking Setup',p:'₹50',t:'Same day'}],docs:['Passbook','Aadhaar Card','Bank ATM Card (if available)'],price:'₹10 - ₹80'},
+  'other.html':{subs:[{n:'Passport Apply',p:'₹200',t:'30-45 days'},{n:'GST Registration',p:'₹500',t:'7-10 days'},{n:'E-Shram Card',p:'₹50',t:'2-3 days'},{n:'Income Certificate',p:'₹100',t:'7-15 days'},{n:'Caste Certificate',p:'₹100',t:'7-15 days'},{n:'Color Print (A4)',p:'₹10',t:'Instant'},{n:'B&W Print',p:'₹3',t:'Instant'},{n:'Scan',p:'₹10',t:'Instant'},{n:'Passport Photo',p:'₹40',t:'Instant'}],docs:['Aadhaar Card','Photo','Required documents (service-wise)'],price:'₹3 - ₹500'}
+};
+document.addEventListener('DOMContentLoaded',()=>{
+  const page = location.pathname.split('/').pop()||'other.html';
+  const data = pageData[page]||pageData['other.html'];
+  const ss = document.getElementById('subServices');
+  data.subs.forEach(s=>{
+    ss.innerHTML+=`<div class="card" style="cursor:pointer" onclick="applyService('${s.n}')">
+      <div class="card-body" style="padding:16px;display:flex;align-items:center;justify-content:space-between">
+        <div><h4 style="font-size:.9rem">${s.n}</h4><span style="font-size:.76rem;color:var(--gray-400)">⏱️ ${s.t}</span></div>
+        <div style="text-align:right"><div class="badge badge-gold">${s.p}</div><div style="margin-top:6px"><span class="btn btn-navy btn-sm">Apply →</span></div></div>
+      </div>
+    </div>`;
+  });
+  const dl = document.getElementById('docsList');
+  dl.innerHTML='<ul style="display:flex;flex-direction:column;gap:8px">'+data.docs.map(d=>`<li style="display:flex;gap:8px;align-items:center;font-size:.86rem"><span style="color:var(--gold)">✓</span>${d}</li>`).join('')+'</ul>';
+  document.getElementById('priceInfo').innerHTML=`<div style="text-align:center;padding:10px"><div style="font-family:var(--font-head);font-size:1.6rem;color:var(--navy)">${data.price}</div><div style="font-size:.78rem;color:var(--gray-400);margin-top:4px">Approximate price range</div></div>`;
+});
+function applyService(name){
+  window.open('https://wa.me/919898072313?text=Mujhe '+encodeURIComponent(name)+' service chahiye. Please help.','_blank');
+}
+</script>
+</body>
+</html>
