@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Settings - Admin - MAA DIGITAL</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+<link rel="stylesheet" href="../assets/css/dashboard.css">
+<link rel="stylesheet" href="../assets/css/admin.css">
+</head>
+<body>
+<nav class="navbar"><div class="navbar-brand"><div class="logo-icon">🌐</div><div><div class="brand-name">MAA DIGITAL</div><div class="brand-sub">Admin Panel</div></div></div><div class="navbar-actions"><span class="badge badge-danger">ADMIN</span><button class="topbar-btn" onclick="logout()">🚪</button></div></nav>
+<div class="admin-layout">
+  <aside class="admin-sidebar" id="sidebar">
+    <div class="admin-sidebar-header"><div class="admin-badge">🔐 Admin</div><div class="user-name" data-user-name>Admin Ji</div></div>
+    <nav class="sidebar-nav">
+      <a href="index.html"><span class="nav-icon">📊</span> Dashboard</a><a href="members.html"><span class="nav-icon">👥</span> Members</a><a href="orders.html"><span class="nav-icon">📦</span> Orders</a><a href="wallet.html"><span class="nav-icon">💰</span> Wallet</a><a href="settings.html" class="active"><span class="nav-icon">⚙️</span> Settings</a>
+    </nav>
+  </aside>
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+  <main class="admin-main">
+    <div class="admin-topbar"><div style="display:flex;align-items:center;gap:12px"><button class="sidebar-toggle-btn" id="sidebarToggle">☰</button><span class="page-title">⚙️ Settings</span></div></div>
+    <div class="admin-content">
+      <div class="grid-2" style="gap:20px;align-items:start">
+        <div>
+          <div class="admin-form-card mb-3">
+            <h4>🏪 Business Info</h4>
+            <div id="alertBox"></div>
+            <div class="form-group"><label class="form-label">Business Name</label><input type="text" class="form-control" value="MAA DIGITAL Cyber Cafe"></div>
+            <div class="form-group"><label class="form-label">Contact Number</label><input type="tel" class="form-control" value="9898072313"></div>
+            <div class="form-group"><label class="form-label">Email</label><input type="email" class="form-control" value="maadigitalseva111@gmail.com"></div>
+            <div class="form-group"><label class="form-label">Address</label><textarea class="form-control" rows="2">Near SBI Bank, Shree Navneet Stationary, Ghoghamba-389365, Panchmahal, Gujarat</textarea></div>
+            <div class="form-group"><label class="form-label">Working Hours</label><input type="text" class="form-control" value="Mon-Sat: 9 AM - 8 PM"></div>
+            <button class="btn btn-gold btn-block" onclick="showAlert('Settings save ho gayi!','success')">💾 Save Changes</button>
+          </div>
+        </div>
+        <div>
+          <div class="admin-form-card mb-3">
+            <h4>📢 Notice Board</h4>
+            <div class="form-group"><label class="form-label">Current Notice</label><textarea class="form-control" rows="3" placeholder="Dashboard par dikhne wala notice...">🎉 Welcome to MAA DIGITAL Portal! Koi problem? WhatsApp karein: 9898072313</textarea></div>
+            <button class="btn btn-navy btn-block" onclick="showAlert('Notice update ho gayi!','success')">📢 Update Notice</button>
+          </div>
+          <div class="admin-form-card">
+            <h4>🔒 Change Password</h4>
+            <div class="form-group"><label class="form-label">Current Password</label><input type="password" class="form-control" placeholder="Current password"></div>
+            <div class="form-group"><label class="form-label">New Password</label><input type="password" class="form-control" placeholder="New password"></div>
+            <div class="form-group"><label class="form-label">Confirm New Password</label><input type="password" class="form-control" placeholder="Confirm new password"></div>
+            <button class="btn btn-navy btn-block" onclick="showAlert('Password change ho gaya!','success')">🔒 Change Password</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+<script src="../assets/js/main.js"></script>
+<script>document.addEventListener('DOMContentLoaded',()=>{if(!Store.get('user')||Store.get('user').role!=='admin')window.location.href='../login.html';loadUserInfo();document.getElementById('sidebarToggle').addEventListener('click',()=>{document.getElementById('sidebar').classList.toggle('open');document.getElementById('sidebarOverlay').classList.toggle('show');});document.getElementById('sidebarOverlay').addEventListener('click',()=>{document.getElementById('sidebar').classList.remove('open');document.getElementById('sidebarOverlay').classList.remove('show');});});</script>
+</body>
+</html>

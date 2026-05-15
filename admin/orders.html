@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Orders - Admin - MAA DIGITAL</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+<link rel="stylesheet" href="../assets/css/dashboard.css">
+<link rel="stylesheet" href="../assets/css/admin.css">
+</head>
+<body>
+<nav class="navbar"><div class="navbar-brand"><div class="logo-icon">🌐</div><div><div class="brand-name">MAA DIGITAL</div><div class="brand-sub">Admin Panel</div></div></div><div class="navbar-actions"><span class="badge badge-danger">ADMIN</span><button class="topbar-btn" onclick="logout()">🚪</button></div></nav>
+<div class="admin-layout">
+  <aside class="admin-sidebar" id="sidebar">
+    <div class="admin-sidebar-header"><div class="admin-badge">🔐 Admin</div><div class="user-name" data-user-name>Admin Ji</div></div>
+    <nav class="sidebar-nav">
+      <a href="index.html"><span class="nav-icon">📊</span> Dashboard</a><a href="members.html"><span class="nav-icon">👥</span> Members</a><a href="orders.html" class="active"><span class="nav-icon">📦</span> All Orders</a><a href="wallet.html"><span class="nav-icon">💰</span> Wallet</a><a href="settings.html"><span class="nav-icon">⚙️</span> Settings</a>
+    </nav>
+  </aside>
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+  <main class="admin-main">
+    <div class="admin-topbar">
+      <div style="display:flex;align-items:center;gap:12px"><button class="sidebar-toggle-btn" id="sidebarToggle">☰</button><span class="page-title">📦 All Orders</span></div>
+      <div class="filters-row">
+        <div class="search-input-wrap"><span class="si">🔍</span><input type="text" placeholder="Order ID ya member..."></div>
+        <select class="filter-select"><option>All Status</option><option>Pending</option><option>Processing</option><option>Completed</option><option>Rejected</option></select>
+        <select class="filter-select"><option>All Services</option><option>Aadhaar</option><option>PAN Card</option><option>Voter ID</option></select>
+      </div>
+    </div>
+    <div class="admin-content">
+      <div class="admin-stats-row">
+        <div class="admin-stat-card"><div class="val">0</div><div class="lbl">Total Orders</div></div>
+        <div class="admin-stat-card"><div class="val">0</div><div class="lbl">Pending</div></div>
+        <div class="admin-stat-card"><div class="val">0</div><div class="lbl">Completed</div></div>
+        <div class="admin-stat-card"><div class="val">₹0</div><div class="lbl">Revenue</div></div>
+      </div>
+      <div class="data-card">
+        <div class="data-card-header"><h4>Order Management</h4></div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Order ID</th><th>Member</th><th>Service</th><th>Details</th><th>Amount</th><th>Date</th><th>Status</th><th>Actions</th></tr></thead>
+            <tbody><tr><td colspan="8"><div class="empty-state"><div class="empty-icon">📭</div><h4>Koi order nahi</h4></div></td></tr></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+<script src="../assets/js/main.js"></script>
+<script>document.addEventListener('DOMContentLoaded',()=>{if(!Store.get('user')||Store.get('user').role!=='admin')window.location.href='../login.html';loadUserInfo();document.getElementById('sidebarToggle').addEventListener('click',()=>{document.getElementById('sidebar').classList.toggle('open');document.getElementById('sidebarOverlay').classList.toggle('show');});document.getElementById('sidebarOverlay').addEventListener('click',()=>{document.getElementById('sidebar').classList.remove('open');document.getElementById('sidebarOverlay').classList.remove('show');});});</script>
+</body>
+</html>

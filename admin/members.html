@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Members - Admin - MAA DIGITAL</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+<link rel="stylesheet" href="../assets/css/dashboard.css">
+<link rel="stylesheet" href="../assets/css/admin.css">
+</head>
+<body>
+<nav class="navbar"><div class="navbar-brand"><div class="logo-icon">🌐</div><div><div class="brand-name">MAA DIGITAL</div><div class="brand-sub">Admin Panel</div></div></div><div class="navbar-actions"><span class="badge badge-danger">ADMIN</span><button class="topbar-btn" onclick="logout()">🚪</button></div></nav>
+<div class="admin-layout">
+  <aside class="admin-sidebar" id="sidebar">
+    <div class="admin-sidebar-header"><div class="admin-badge">🔐 Admin</div><div class="user-name" data-user-name>Admin Ji</div></div>
+    <nav class="sidebar-nav">
+      <a href="index.html"><span class="nav-icon">📊</span> Dashboard</a>
+      <a href="members.html" class="active"><span class="nav-icon">👥</span> All Members</a>
+      <a href="orders.html"><span class="nav-icon">📦</span> All Orders</a>
+      <a href="wallet.html"><span class="nav-icon">💰</span> Wallet Control</a>
+      <a href="settings.html"><span class="nav-icon">⚙️</span> Settings</a>
+    </nav>
+  </aside>
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+  <main class="admin-main">
+    <div class="admin-topbar">
+      <div style="display:flex;align-items:center;gap:12px"><button class="sidebar-toggle-btn" id="sidebarToggle">☰</button><span class="page-title">👥 All Members</span></div>
+      <div class="filters-row">
+        <div class="search-input-wrap"><span class="si">🔍</span><input type="text" placeholder="Name ya mobile search..."></div>
+        <select class="filter-select"><option>All Status</option><option>Active</option><option>Blocked</option></select>
+        <button class="btn btn-gold btn-sm">+ New Member</button>
+      </div>
+    </div>
+    <div class="admin-content">
+      <div class="admin-stats-row" style="grid-template-columns:repeat(3,1fr)">
+        <div class="admin-stat-card"><div class="val">0</div><div class="lbl">Total Members</div></div>
+        <div class="admin-stat-card"><div class="val">0</div><div class="lbl">Active</div></div>
+        <div class="admin-stat-card"><div class="val">0</div><div class="lbl">Blocked</div></div>
+      </div>
+      <div class="data-card">
+        <div class="data-card-header"><h4>Member List</h4></div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>ID</th><th>Name</th><th>Mobile</th><th>District</th><th>Wallet</th><th>Joined</th><th>Status</th><th>Actions</th></tr></thead>
+            <tbody>
+              <tr><td colspan="8"><div class="empty-state"><div class="empty-icon">👤</div><h4>Koi member nahi</h4><p>Register hone par yahan members dikhenge.</p></div></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+<script src="../assets/js/main.js"></script>
+<script>document.addEventListener('DOMContentLoaded',()=>{if(!Store.get('user')||Store.get('user').role!=='admin')window.location.href='../login.html';loadUserInfo();document.getElementById('sidebarToggle').addEventListener('click',()=>{document.getElementById('sidebar').classList.toggle('open');document.getElementById('sidebarOverlay').classList.toggle('show');});document.getElementById('sidebarOverlay').addEventListener('click',()=>{document.getElementById('sidebar').classList.remove('open');document.getElementById('sidebarOverlay').classList.remove('show');});});</script>
+</body>
+</html>
